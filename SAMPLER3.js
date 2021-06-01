@@ -83,6 +83,13 @@ text("volume",20,20,width/12,height/40);
 sound.setVolume(slider.value());
 slider.position(width/14, height/43);
 pop();
+        
+//instructions
+push();
+textSize(24);
+text("press any key",width/73,height/12);
+text("click to CHOMP",width/73,height/9);
+pop();        
 
 }
 
