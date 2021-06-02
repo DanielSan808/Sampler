@@ -6,7 +6,7 @@ var slider;
 var colors;
 var sound;
 
-var testText = 'Gummy';
+var testText;
 
 function preload() {
         
@@ -43,6 +43,13 @@ yellow = color(245, 215, 122);
 
 colors = [purple, blue, red, green, pink, yellow];
 
+push();
+textSize(400);
+textAlign(CENTER); 
+fill(colors[int(random(0,5))]); 
+text(testText,width/2,height/2);
+pop();
+
  
    
 }
@@ -50,30 +57,29 @@ colors = [purple, blue, red, green, pink, yellow];
 
 function draw() { 
   
-  
 //text borders to stop them from being eaten  
 push();
 fill(255);
-rect(410, 90, 670, 55);
+rect(width/4, height/10, width/2, 0.1*height/2);
 pop(); 
 
 push();
 fill(255);
-rect(410, 600, 720, 180);
+rect(width/4, 1.3*height/2, width/2, 0.5*height/2);
 pop();  
    
 //all glyphs  
 push();
 textSize(46);
 textAlign(CENTER);
-text(myText, 410, 600,800,width/2,height/2);
+text(myText, 0.6*width/2,1.3*height/2,width/2,height/2);
 pop();
 
 //pangram
 push();
 textSize(23);
 textAlign(CENTER);
-text(pangram, 415, 100,800,width/2,height/2);
+text(pangram, 0.6*width/2, height/8,width/2,height/2);
 pop();
 
 //slider
@@ -83,21 +89,19 @@ text("volume",20,20,width/12,height/40);
 sound.setVolume(slider.value());
 slider.position(width/14, height/43);
 pop();
-        
+
 //instructions
 push();
 textSize(24);
 text("press any key",width/73,height/12);
 text("click to CHOMP",width/73,height/9);
-pop();        
+pop();
 
 }
 
 function mouseClicked(){
   push();
   image(bite,mouseX,mouseY,200,200);
-  //fill(255);
-  //ellipse(mouseX, mouseY, 100, 100);
   pop();
   sound.play();
   
@@ -112,6 +116,7 @@ textSize(400);
 textAlign(CENTER); 
 fill(colors[int(random(0,5))]); 
 text(testText,width/2,height/2);
+
 pop();
   
 }
